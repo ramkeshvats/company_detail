@@ -1,0 +1,67 @@
+{% extends 'header.html' %}
+
+{% block main_start %}
+  <style>
+    table { 
+            border: 5px solid black;
+      }
+    td { 
+            border: 1px dotted red;
+      }
+    .edit { 
+            border: 2px solid black;
+            background-color: gray;
+      }
+    .logout { 
+            border: 2px solid black;
+            background-color: gray;
+            float: right;
+      }
+   
+  </style>
+    <title>Company_detail</title>
+    {% if page %}
+        <a class="edit" href="/home/change/">EDIT</a>
+   
+    {% endif %}
+    <a class="logout" href="/home/log_out">LOGOUT</a>
+    <h1 style="text-transform: capitalize">Name: {{detail.name}}</h1>
+    <table>
+      <tr>
+        <td>Name</td>
+        <td style="text-transform: capitalize">{{detail.name}}</td>
+      </tr>
+      <tr>
+        <td>Age</td>
+        <td>{{detail.age}}</td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td>{{detail.user.email}}</td>
+      </tr>
+      <tr>
+        <td>Current-Company</td>
+        <td style="text-transform: capitalize">{{detail.current_Company.c_name}}</td>
+      </tr>
+      <tr>
+        <td>Desination</td>
+        <td style="text-transform: capitalize">{{detail.desination}}</td>
+      </tr>
+      <tr>
+        <td>Username</td>
+        <td>{{detail.user.username}}</td>
+     </tr>
+     <tr>
+       <td><strong>History</strong></td>
+     </tr>
+      {% for item in detail.preCompany.all|dictsortreversed:"leaving_date" %}
+        {% if item.company_name %}
+        <tr>
+          <td>Previous Detail</td>
+          <td style="text-transform: capitalize">{{item.company_name}}</td>
+          <td style="text-transform: capitalize">{{item.pre_desination}}</td>
+        </tr>
+        {% endif %}
+      {% endfor %}
+    </table>
+{% endblock %}

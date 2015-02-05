@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <style>
+        table {
+                 border: 5px solid black;
+                 }
+        th {
+                border: 2px solid red;
+                }
+        td {
+            border: 2px dotted blue;
+            text-transform: capitalize;
+            }
+
+   </style>
+                                                          
+
+  </head>
+  <body>
+    <h2>Search Result</h2>
+    <table>
+      <tr>
+       
+        <th>Name</th>
+        <th>Desination</th>
+        <th>Company Name</th>
+        
+      </tr>
+
+      {% for item in lst %}
+        <tr>
+          <td>{{item.name}}</td>
+          <td>{{item.desination}}</td>
+          <td>{{item.current_Company}}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

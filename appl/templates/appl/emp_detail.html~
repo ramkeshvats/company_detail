@@ -1,0 +1,77 @@
+{% extends 'header.html' %}
+
+{% block main_start %}
+  <style>
+    table { 
+            border: 5px solid black;
+      }
+    td { 
+            border: 1px dotted red;
+      }
+   
+  </style>
+    <title>Company_detail</title>
+    {% if page %}
+        <a style="float: right" href="/home/change/">EDIT</a>
+    {% endif %}
+    <h1 style="text-transform: capitalize">Name: {{detail.name}}</h1>
+    <a style="float: bottom" href="/home/log_out">logout</a>
+    <table>
+      <tr>
+        <td>Name</td>
+        <td style="text-transform: capitalize">{{detail.name}}</td>
+      </tr>
+      <tr>
+        <td>Age</td>
+        <td>{{detail.age}}</td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td>{{detail.user.email}}</td>
+      </tr>
+      <tr>
+        <td>Current-Company</td>
+        <td style="text-transform: capitalize">{{detail.current_Company.c_name}}</td>
+      </tr>
+      <tr>
+        <td>Desination</td>
+        <td style="text-transform: capitalize">{{detail.desination}}</td>
+      </tr>
+      <tr>
+        <td>Username</td>
+        <td>{{detail.user.username}}</td>
+     </tr>
+     <tr>
+       <td><strong>History</strong></td>
+     </tr>
+     {% for item in detail.preCompany.all %}
+      <tr>
+	<td>{{item.company_name}} ********* {{item.pre_desination}}</td>	
+       </tr>
+     {% endfor %}
+{% for item in detail.preCompany.all %}
+        {% if item.company_name %}
+        <tr>
+          <td>Previous Company</td>
+          <td style="text-transform: capitalize">{{item.company_name}}</td>
+          <td style="text-transform: capitalize">{{item.pre_desination}}</td>
+          <td>{{item.leaving_date}}</td>
+        </tr>
+        {% endif %}
+        {% if item.pre_desination %}
+        <tr>
+          <td>Previous Desination</td>
+          <td style="text-transform: capitalize">{{item.pre_desination}}</td>
+        </tr>
+        {% endif %}
+      {% endfor %}
+      <!--{% for item in detail.preCompany.all %}
+        {% if item.pre_desination %}
+        <tr>
+          <td>Previous Desination</td>
+          <td style="text-transform: capitalize">{{item.pre_desination}}</td>
+        </tr>
+        {% endif %}
+      {% endfor %}-->
+    </table>
+{% endblock %}

@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <style>
+
+      .shift {
+                float: center;
+                border: 3px solid green;
+                padding: 30px;
+            }
+    </style>  
+  </head>                             
+  <body>
+    <form class="shift" action="/home/searched/" method="POST">
+      <!--{% csrf_token %}-->
+      Name:<input type="text" name="namee" value="">
+      Desination:<input type="text" name="desination" value="">
+      Company:<input type="text" name="companyname" value="">
+      <input style="background-color: blue" allign="center" value="submit" type="submit" name="submit">
+     
+    </form>
+    {% block main_start %}
+
+    {% endblock %}
+  </body>
+</html>

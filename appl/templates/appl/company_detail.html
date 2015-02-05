@@ -1,0 +1,43 @@
+{% extends 'header.html' %}
+
+{% block main_start %}
+  <style>
+    h1 {
+         text-transform: capitalize;
+    }
+    .ss { 
+      border: 2px solid black;
+      background-color: gray;
+      float: right;
+    }
+  </style>
+    <title>Company_detail</title>
+    <a class="ss" href="/home/log_out">LOGOUT</a>
+      <h1>{{cmpdet.c_name}}</h1>
+    
+   Description:{{cmpdet.description}}<br>
+    <h3 style="color: red">Current Employee</h3>
+    <div>
+        {% for emp in employee %}
+         <!--<li style="text-transform: capitalize"><a href="/appl/{{emp.id}}">{{emp.name}}</a></li>-->
+         <li style="text-transform: capitalize"><a href="/appl/{{emp.user.username}}">{{emp.name}}</a></li>
+         {% if forloop.last %}<br>No of Employee: {{ forloop.counter }} {% endif %}
+        {% endfor %}
+    </div> 
+    <br>
+    <footer>
+      <address>
+        Adress: {{cmpdet.address}}<br>
+        Website: <a href="{{cmpdet.web}}">{{cmpdet.web}}</a><br>
+        Ph: {{cmpdet.phone}}<br>
+      </address >
+    </footer>
+    <p></p>
+    <h3 style="color: green">Our other branch are at:</h3>
+    {% for item in cmpdet.branch.all %}
+      Address: {{item.baddr}}<br>
+      Web: <a href="{{item.bweb}}">{{item.bweb}}</a><br>
+      ph: {{item.bphone}}<br>
+      <p></p>
+    {% endfor %}
+{% endblock %}

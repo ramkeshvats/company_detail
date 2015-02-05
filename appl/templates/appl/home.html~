@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>Home Page</title>
+  </head>
+  <body>
+    <h1>Welcome You to login page</h1>
+    <form action="/appl/cmpy_detail/">
+      <fieldset>
+        <legend allign="center">Login:</legend>
+          Username:<input type="text" name="username"><br>
+          Password:<input type="password" name="password"><br>
+        <input style="background-color: blue" allign="center" value="login "type="submit" name="login">
+      </fieldset>
+    </form>
+    <!--<a style="float:right" href="sign_up">sign_up</a>-->
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<html>
+  <head>
+  <style>
+    .shift {
+        float: right;
+        border: 3px solid green;
+        padding: 30px;
+     }
+    a {
+        font-size: 28px;
+        border: 10px solid navy;
+        padding: 5px;
+        background-color: yellow;
+        margin-top: 960px;  
+        margin-left: 1210px;  
+        
+     }
+    .note {
+
+        float: left;
+        border: 3px solid green;
+        padding: 30px;
+     }
+  </style>
+  </head>
+  <body>
+    <h1>Welcome You to login page</h1>
+    {% if flag %}
+      <h2>{{flag}}</h2>
+    {% endif %}
+                                         
+       <form class="shift" action="/home/log_in/" method="post">
+        {% csrf_token %}
+          Username:<input type="text" name="username"><br>
+          <br>
+          Password:<input type="password" name="password"><br>
+          <br>
+        <input style="background-color: blue" allign="center" value="login "type="submit" name="login">
+      </form>
+   
+    <a href="/home/sign_up/">sign_up</a>
+
+
+  </body>
+</html>

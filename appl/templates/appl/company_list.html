@@ -1,0 +1,21 @@
+{% extends 'header.html' %}
+{% block main_start %}
+  <style>
+    .change { 
+      border: 2px solid black;
+      background-color: gray;
+      float: right;
+    }
+  </style>
+    <a class="change" href="/home/log_out/">LOGOUT</a>
+    <h2 style="color:red">Welcome u group of company page</h2>
+    <p></p>
+    <p></p>
+    <p></p>
+    {% for item in lst %}
+      <li style="text-transform: capitalize"><a href="/home/appl/company_detail/{{item}}/">{{item}}</a></li>
+    
+      <p></p>
+    {% endfor %}
+{% endblock %}
+
